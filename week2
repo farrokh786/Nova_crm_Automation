@@ -1,0 +1,49 @@
+
+---
+
+## 📄 How It Works
+
+1. **User enters website URL(s)** when running the script.
+2. **Script scrapes** logos, PDFs, and hero/product images.
+3. **Folders are created dynamically** in Google Drive:
+    - Root folder: Provided by manager
+    - Subfolders: Company-specific
+4. **Uploads assets** into corresponding subfolders.
+5. **(Planned)**: Trigger via Logic App when URL is added to Blob or CSV
+
+---
+
+## 🔐 Credentials
+
+- For testing: uses local `credentials.json` with OAuth consent popup.
+- For deployment: replace with **Google Cloud Service Account** credentials and grant access to manager's Drive.
+
+> ⚠️ Do **NOT** upload `credentials.json` to GitHub. Add it to `.gitignore`.
+
+---
+
+## ✅ To Do
+
+- [x] Add support for multiple URLs
+- [x] Create subfolders for images, PDFs, and logs
+- [x] Upload directly to shared manager's Google Drive
+- [ ] Azure Logic App CSV trigger integration
+- [ ] Azure Function to run Python script automatically
+- [ ] Logging and error tracking in Drive
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss.
+
+---
+
+## 📧 Contact
+
+**Md Farrokhalli**  
+[LinkedIn](https://linkedin.com) (update with your actual link)  
+[GitHub](https://github.com/YOUR_USERNAME)
+
+---
+
