@@ -1,0 +1,81 @@
+# Azure Function App – Product/Service Image Scraper & Uploader
+
+This project is a **serverless Python-based web scraping solution** hosted on **Azure Function App**, designed to extract **product images, service images, logos, and PDFs** from company websites and automatically upload them to a structured **Google Drive** folder.
+
+---
+
+## 🚀 Key Features
+
+- Scrapes product and service-related assets from websites.
+- Uses Google Drive API for automatic uploads.
+- Folder structure maintained per company.
+- Modular design – easily adjustable logic and filters.
+- Ready for full automation with Azure Blob + Logic Apps.
+
+---
+
+## 📂 Folder Structure
+
+crmscrip-azure/
+│
+├── httptriggerscraper/
+│ ├── init.py # Main function logic for Azure trigger
+│ └── function.json # Function binding and trigger settings
+│
+├── credentials.json # Google Drive API credentials
+├── host.json # Function app host configuration
+├── requirements.txt # Python dependencies
+
+yaml
+Copy
+Edit
+
+
+  
+---
+
+## 🛠 Requirements
+
+- Python 3.10 (for local testing)
+- Azure Function Core Tools (if deploying via CLI)
+- Google Drive API enabled + `credentials.json`
+- Required libraries (see `requirements.txt`)
+
+---
+
+## 📦 Installation & Deployment (Zip Deploy)
+
+1. **Prepare ZIP File:**
+zip -r crmscrip-azure.zip *
+
+2. **Deploy to Azure:**
+
+- Open Azure Portal
+- Go to Function App → Deployment Center → Zip Deploy
+- Upload `crmscrip-azure.zip`
+
+3. **Configure App Settings (optional):**
+
+- If your script expects environment variables (e.g. `GOOGLE_APPLICATION_CREDENTIALS`), set them under **Configuration** in the Function App.
+
+---
+
+## ⚙️ Function Trigger
+
+This function is triggered via **HTTP**. You can send a POST request with a JSON body like:
+
+```json
+{
+"urls": [
+ "https://example.com",
+ "https://example2.com"
+]
+}
+🔄 Upcoming Automation (Phase 2)
+We are currently working to automate this process via:
+
+Azure Logic App: Triggers the Function when a CSV or URL is added.
+
+Azure Blob Storage: Holds the CSVs and logs.
+
+Service Accounts: To avoid manual authentication (popup) and enable smoother deployment across environments.
